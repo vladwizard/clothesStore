@@ -9,3 +9,7 @@ body {
 img{
     /* pointer-events:painted; */
 }
+*{
+    padding: 0;
+    margin: 0;
+}

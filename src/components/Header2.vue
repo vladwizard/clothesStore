@@ -9,7 +9,6 @@
     <div>
       <p v-for="item in ['Women', 'Men', 'Girls', 'Boys', 'Sale']">
         {{ item }}
-
       </p>
     </div>
     <div>
