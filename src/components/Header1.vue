@@ -2,7 +2,7 @@
 import lineArrowVue from '../assets/lineArrow.vue';
 </script>
 <template>
-  <header class="header1">
+  <header class="small">
     <p>Available 24/7 at <b>(405) 555-0128</b></p>
 
     <div>
@@ -25,8 +25,8 @@ import lineArrowVue from '../assets/lineArrow.vue';
 
   </header>
 </template>
-<style lang="scss">
-.header1 {
+<style lang="scss" scoped>
+header {
   svg {
     fill: white;
   }
@@ -61,7 +61,6 @@ import lineArrowVue from '../assets/lineArrow.vue';
       gap: 9px
     }
   }
-
 }
 
 .lang {

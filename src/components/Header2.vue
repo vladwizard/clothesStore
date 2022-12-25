@@ -1,21 +1,25 @@
 <script setup lang="ts">
+import Logo from '../assets/logo.vue';
+import HeaderDrop from './HeaderDrop.vue'
+import { ref } from 'vue';
+const clickIndex = ref(-1)
+
 </script>
 <template>
-  <header class="header2">
+  <header>
+    <Logo class="asd" />
     <div>
-      <img src="src/assets/logo1.svg">
-      <img src="src/assets/logo2.svg">
-    </div>
-    <div>
-      <p v-for="item in ['Women', 'Men', 'Girls', 'Boys', 'Sale']">
+      <button class="unstyle gray800" v-for="item, index in ['Women', 'Men', 'Girls', 'Boys', 'Sale']"
+        @click="clickIndex == index ? clickIndex = -1 : clickIndex = index"
+        :class="{ primaryColor: clickIndex == index }">
         {{ item }}
-      </p>
+      </button>
     </div>
     <div>
-      <input type="text" placeholder="Search for products...">
+      <input class="small" type="text" placeholder="Search for products...">
       <img src="src/assets/magnifier.svg">
     </div>
-    <div>
+    <div class="counters base">
       <div>
         <img src="src/assets/heart.svg">
         <p>2</p>
@@ -28,9 +32,10 @@
 
     </div>
   </header>
+  <HeaderDrop v-if="clickIndex != -1" />
 </template>
-<style lang="scss">
-.header2 {
+<style lang="scss" scoped>
+header {
   margin: auto;
   width: 1920-700px;
   height: 84px;
@@ -60,9 +65,6 @@
     input[type='text'] {
       width: 380px;
       height: 44px;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 150%;
       border: 1px solid #D7DADD;
       border-radius: 4px;
       padding: 0 10px;
@@ -73,27 +75,27 @@
       right: 15px;
     }
   }
+}
+
+.counters {
+  div {
+    gap: 8.5px
+  }
+
+  span {
+    height: 22px;
+    width: 1px;
+    background: linear-gradient(270.01deg, rgba(218, 219, 221, 0) 0%, rgba(218, 219, 221, 0.5) 12.33%, #DADBDD 51.91%, rgba(218, 219, 221, 0.5) 87.85%, rgba(218, 219, 221, 0) 100%);
+    margin: 0 20px;
+  }
 
   >div:last-child {
-    div {
-      gap: 8.5px
-    }
-
-    span {
-      height: 22px;
-      width: 1px;
-      background: linear-gradient(270.01deg, rgba(218, 219, 221, 0) 0%, rgba(218, 219, 221, 0.5) 12.33%, #DADBDD 51.91%, rgba(218, 219, 221, 0.5) 87.85%, rgba(218, 219, 221, 0) 100%);
-      margin: 0 20px;
-    }
-
-    >div:last-child {
-      p.notzero {
-        width: 23px;
-        background: #03CEA4;
-        border-radius: 4px;
-        text-align: center;
-        line-height: 20px;
-      }
+    p.notzero {
+      width: 23px;
+      background: #03CEA4;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 20px;
     }
   }
 }

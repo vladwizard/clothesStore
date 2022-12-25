@@ -19,25 +19,42 @@ import Footer2Vue from './components/Footer2.vue';
 </script>
 
 <template>
-  <Header1Vue />
-  <Header2Vue />
-  <PreviewVue />
-  <PeopleCategoriesVue />
-  <NewArrivalsVue />
-  <BlockAreasVue />
-  <PopularCategoriesVue />
-  <TrendingNowVue />
-  <SalesVue />
-  <MobileOfferVue />
-  <ArchivmentVue />
-  <FollowInstagramVue />
-  <FashionBlogVue />
-  <PatnerCompaniesVue />
-  <SubscribeOfferVue />
-  <Footer1Vue />
-  <Footer2Vue />
+  <Header1Vue class="Header1" />
+  <Header2Vue class="Header2" />
+  <PreviewVue class="Preview" />
+  <PeopleCategoriesVue class="PeopleCategories" />
+  <NewArrivalsVue class="NewArrivals" />
+  <BlockAreasVue class="BlockAreas" />
+  <PopularCategoriesVue class="PopularCategories" />
+  <TrendingNowVue class="TrendingNow" />
+  <SalesVue class="Sales" />
+  <MobileOfferVue class="MobileOffer" />
+  <ArchivmentVue class="Archivment" />
+  <FollowInstagramVue class="FollowInstagram" />
+  <FashionBlogVue class="FashionBlog" />
+  <PatnerCompaniesVue class="PatnerCompanies" />
+  <SubscribeOfferVue class="SubscribeOffer" />
+  <Footer1Vue class="Footer1" />
+  <Footer2Vue class="Footer2" />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.PeopleCategories {
+  margin: -60px auto 0 auto;
+}
 
+.BlockAreas {
+  padding: 0 30px;
+}
+
+.NewArrivals {
+  height: 1051px;
+  padding: 180px 0;
+}
+
+.PopularCategories {
+  height: 714px;
+  padding: 180px 0;
+
+}
 </style>

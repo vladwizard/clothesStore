@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Rubik+Mono+One&display=swap");
+@import "src/common";
+body {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+
+  line-height: 150%;
+  margin: 0;
+}
+img {
+  /* pointer-events:painted; */
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin-bottom: 60px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  width: max-content;
+  &:hover {
+    cursor: default;
+  }
+}
+h1 {
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 130%;
+}
+h2 {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 130%;
+}
+h3 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 150%;
+}
+h4 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+}
+h5 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+}
+h6 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #c4c4c4;
+}
+button {
+  border-radius: 4px;
+  line-height: 300%;
+  white-space: nowrap;
+  &.filled {
+    background: $primary;
+    border: $primary;
+    color: white;
+  }
+  &.empty {
+    color: $primary;
+    border-color: $primary;
+    background: none;
+  }
+  &.unstyle {
+    border: none;
+    background: none;
+  }
+}
+.shadow-small {
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+}
+.shadow-regular {
+  box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.16), 0px 30px 24px -10px rgba(154, 156, 165, 0.1),
+    0px 12px 10px -6px rgba(154, 156, 165, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+}
+.shadow-large {
+  box-shadow: 0px 60px 80px -20px rgba(30, 33, 44, 0.16), 0px 26px 24px -10px rgba(30, 33, 44, 0.1),
+    0px 12px 10px -6px rgba(30, 33, 44, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+}
+.display1 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 72px;
+  line-height: 130%;
+}
+.display2 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 130%;
+}
+.display3 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 130%;
+}
+.display4 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 130%;
+}
+.lead {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 20px;
+  line-height: 150%;
+  font-weight: 400;
+  &.bold {
+    font-weight: 700;
+  }
+}
+.large {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 16px;
+  line-height: 160%;
+  font-weight: 400;
+  &.bold {
+    font-weight: 700;
+  }
+}
+.base {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 16px;
+  line-height: 160%;
+  font-weight: 400;
+  &.bold {
+    font-weight: 700;
+  }
+}
+.small {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 400;
+  &.bold {
+    font-weight: 700;
+  }
+}
+.extrasmall {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 150%;
+  font-weight: 400;
+  &.bold {
+    font-weight: 900;
+  }
+}
+.extraextrasmall {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 10px;
+  line-height: 150%;
+  font-weight: 400;
+  &.bold {
+    font-weight: 900;
+  }
+}
+.left {
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.gray200 {
+  color: $gray200;
+}
+.gray300 {
+  color: $gray300;
+}
+.gray400 {
+  color: $gray400;
+}
+.gray500 {
+  color: $gray500;
+}
+.gray600 {
+  color: $gray600;
+}
+.gray700 {
+  color: $gray700;
+}
+.gray800 {
+  color: $gray800;
+}
+.gray900 {
+  color: $gray900;
+}
+.gray100 {
+  color: $gray100;
+}
+.primary {
+  color: $primary;
+}
+.success {
+  color: $success;
+}
+.danger {
+  color: $danger;
+}
+.warning {
+  color: $warning;
+}
+.info {
+  color: $info;
+}
+
+.primary-background {
+  background: $primary;
+}
+.success-background {
+  background: $success;
+}
+.danger-background {
+  background: $danger;
+}
+.warning-background {
+  background: $warning;
+}
+.info-background {
+  background: $info;
+}

@@ -1,0 +1,24 @@
+{
+  "collections": [
+    {
+      "title": "Menswear 2020",
+      "category": "New collection",
+      "image": "src/assets/backend/manswear2020.png"
+    },
+    {
+      "title": "Collection 1",
+      "category": "",
+      "image": ""
+    },
+    {
+      "title": "Collection 2",
+      "category": "",
+      "image": ""
+    },
+    {
+      "title": "Collection 3",
+      "category": "",
+      "image": ""
+    }
+  ]
+}
