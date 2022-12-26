@@ -39,11 +39,11 @@ const items =
 article {
 
   >h1 {
-    margin: 180px auto 24px auto;
+    text-align: center;
+
   }
 
   >p {
-    margin: auto;
     text-align: center;
     margin-bottom: 60px;
   }

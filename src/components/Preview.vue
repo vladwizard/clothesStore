@@ -5,18 +5,19 @@ import lineArrow from '../assets/lineArrow.vue'
 import collectionsJson from '../assets/data/collections.json'
 import { Collection } from '../types'
 import { ref } from 'vue';
+
 const collections: Collection[] = collectionsJson.collections;
-const index = ref(0);
+const indexC = ref(0);
 function changeCollection(increase: boolean) {
   if (increase) {
-    if (index.value < collections.length - 1) index.value++;
+    if (indexC.value < collections.length - 1) indexC.value++;
   }
   else {
-
-    if (index.value > 0) index.value--;
+    if (indexC.value > 0) indexC.value--;
   }
 
 }
+
 </script>
 
 <template>
@@ -29,25 +30,27 @@ function changeCollection(increase: boolean) {
     <lineArrow />
 
   </header>
-  <main :style="{ 'background-image': 'url(' + collections[index].image + ')' }">
+  <main :style="{ 'background-image': 'url(' + collections[indexC].image + ')' }">
 
     <ButtonArrowVue class="left" @click="changeCollection(false)" />
     <div class="data">
-      <p>{{ collections[index].category }}</p>
-      <div>
-        <nobr>
-          <h1 class="display1">{{ collections[index].title }}</h1>
-        </nobr>
-        <div>
-          <button class="empty">Shop sale</button>
-          <button class="filled">Shop the menswear</button>
-        </div>
+      <p class="category">{{ collections[indexC].category }}</p>
+      <p class="display1 title">{{ collections[indexC].title }}</p>
 
+      <div class="buttons">
+        <button class="empty">Shop sale</button>
+        <button class="filled">Shop the {{ collections[indexC].title.split(' ').slice(0,-1).join(' ') }}</button>
       </div>
-      <div class="variants"></div>
+      <div class="switch-block">
+        <div v-for="index in collections.length" :class="{ unshow: index != indexC + 1 }" @click="indexC = index - 1">
+          <h3 class="gray800">{{ index < 10 ? '0' + index : index }}</h3>
+              <div class="gray800-background"></div>
+        </div>
+      </div>
+
     </div>
+
     <ButtonArrowVue @click="changeCollection(true)" />
-    <!-- <img :src="collections[index].image" alt=""> -->
   </main>
 </template>
 
@@ -113,31 +116,55 @@ main {
   position: absolute;
   left: 345px;
   height: 480px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 700px;
+  background: --var(--asd);
+  >* {
+    position: absolute;
+  }
 
-  >p {
+  .category {
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
   }
 
-  >div {
-    position: absolute;
+  .title {
     top: 39px;
+  }
+
+  .buttons {
+    top: 166px + 27px;
+    display: flex;
+    gap: 24px;
+
+    >button {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 52px;
+      padding: 0 40px;
+    }
+  }
+
+  >.switch-block {
+    top: 399+27px;
+    display: flex;
+    gap: 4px;
 
     >div {
-      display: flex;
-      gap: 24px;
-
-      button {
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 52px;
-        padding: 0 40px;
+      &.unshow {
+        opacity: 0.6;
       }
 
+      >h3 {
+        margin-bottom: 12px;
+      }
+
+      >div {
+        width: 178px;
+        height: 2px;
+        border-radius: 2px;
+
+      }
     }
 
   }

@@ -6,6 +6,7 @@ body {
 
   line-height: 150%;
   margin: 0;
+  --asd: blue;
 }
 img {
   /* pointer-events:painted; */
@@ -24,7 +25,6 @@ h4,
 h5,
 h6,
 p {
-  width: max-content;
   &:hover {
     cursor: default;
   }
@@ -96,36 +96,26 @@ button {
     0px 12px 10px -6px rgba(30, 33, 44, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
 }
 .display1 {
-  font-family: "Lato";
-  font-style: normal;
   font-weight: 900;
   font-size: 72px;
   line-height: 130%;
 }
 .display2 {
-  font-family: "Lato";
-  font-style: normal;
   font-weight: 900;
   font-size: 64px;
   line-height: 130%;
 }
 .display3 {
-  font-family: "Lato";
-  font-style: normal;
   font-weight: 900;
   font-size: 56px;
   line-height: 130%;
 }
 .display4 {
-  font-family: "Lato";
-  font-style: normal;
   font-weight: 900;
   font-size: 48px;
   line-height: 130%;
 }
 .lead {
-  font-family: "Lato";
-  font-style: normal;
   font-size: 20px;
   line-height: 150%;
   font-weight: 400;
@@ -134,8 +124,6 @@ button {
   }
 }
 .large {
-  font-family: "Lato";
-  font-style: normal;
   font-size: 16px;
   line-height: 160%;
   font-weight: 400;
@@ -144,8 +132,6 @@ button {
   }
 }
 .base {
-  font-family: "Lato";
-  font-style: normal;
   font-size: 16px;
   line-height: 160%;
   font-weight: 400;
@@ -154,8 +140,6 @@ button {
   }
 }
 .small {
-  font-family: "Lato";
-  font-style: normal;
   font-size: 14px;
   line-height: 150%;
   font-weight: 400;
@@ -164,8 +148,6 @@ button {
   }
 }
 .extrasmall {
-  font-family: "Lato";
-  font-style: normal;
   font-size: 12px;
   line-height: 150%;
   font-weight: 400;
@@ -174,8 +156,6 @@ button {
   }
 }
 .extraextrasmall {
-  font-family: "Lato";
-  font-style: normal;
   font-size: 10px;
   line-height: 150%;
   font-weight: 400;
@@ -185,6 +165,9 @@ button {
 }
 .left {
   transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+.gray100 {
+  color: $gray100;
 }
 .gray200 {
   color: $gray200;
@@ -210,9 +193,7 @@ button {
 .gray900 {
   color: $gray900;
 }
-.gray100 {
-  color: $gray100;
-}
+
 .primary {
   color: $primary;
 }
@@ -243,4 +224,32 @@ button {
 }
 .info-background {
   background: $info;
+}
+
+.gray100-background {
+  background: $gray100;
+}
+.gray200-background {
+  background: $gray200;
+}
+.gray300-background {
+  background: $gray300;
+}
+.gray400-background {
+  background: $gray400;
+}
+.gray500-background {
+  background: $gray500;
+}
+.gray600-background {
+  background: $gray600;
+}
+.gray700-background {
+  background: $gray700;
+}
+.gray800-background {
+  background: $gray800;
+}
+.gray900-background {
+  background: $gray900;
 }

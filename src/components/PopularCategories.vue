@@ -30,8 +30,7 @@ const items =
 
 <style lang="scss" scoped>
 h1 {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
 
 }
 

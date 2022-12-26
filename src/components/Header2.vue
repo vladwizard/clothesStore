@@ -9,9 +9,8 @@ const clickIndex = ref(-1)
   <header>
     <Logo class="asd" />
     <div>
-      <button class="unstyle gray800" v-for="item, index in ['Women', 'Men', 'Girls', 'Boys', 'Sale']"
-        @click="clickIndex == index ? clickIndex = -1 : clickIndex = index"
-        :class="{ primaryColor: clickIndex == index }">
+      <button class="category unstyle gray800" v-for="item, index in ['Women', 'Men', 'Girls', 'Boys', 'Sale']"
+        @click="clickIndex == index ? clickIndex = -1 : clickIndex = index" :class="{ primary: clickIndex == index }">
         {{ item }}
       </button>
     </div>
@@ -46,6 +45,16 @@ header {
   div {
     display: flex;
     align-items: center;
+  }
+
+  .category {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    &:last-child{
+      @import '../common';
+      color: $danger;
+    }
   }
 
   >div:nth-child(2) {
