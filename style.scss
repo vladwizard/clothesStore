@@ -1,12 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Rubik+Mono+One&display=swap");
-@import "src/common";
+// var(--primary): #17696a;
+// $success: #03cea4;
+// $danger: #ff4242;
+// $warning: #f89828;
+// $info: #5a87fc;
+// $divider-gradient: linear-gradient(
+//   rgba(218, 219, 221, 0) 0%,
+//   rgba(218, 219, 221, 0.5) 12.33%,
+//   #dadbdd 51.91%,
+//   rgba(218, 219, 221, 0.5) 87.85%,
+//   rgba(218, 219, 221, 0) 100%
+// );
+// $gray100: #f9f9f9;
+// $gray200: #f4f5f7;
+// $gray300: #e5e8ed;
+// $gray400: #d7dadd;
+// $gray500: #b3b7bc;
+// $gray600: #9a9ca5;
+// $gray700: #787a80;
+// $gray800: #424551;
+// $gray900: #1e212c;
+
 body {
   font-family: "Lato", sans-serif;
   font-style: normal;
 
   line-height: 150%;
   margin: 0;
-  --asd: blue;
+
+  --primary: #17696a;
+  --success: #03cea4;
+  --danger: #ff4242;
+  --warning: #f89828;
+  --info: #5a87fc;
+  --divider-gradient: linear-gradient(
+    rgba(218, 219, 221, 0) 0%,
+    rgba(218, 219, 221, 0.5) 12.33%,
+    #dadbdd 51.91%,
+    rgba(218, 219, 221, 0.5) 87.85%,
+    rgba(218, 219, 221, 0) 100%
+  );
+  --gray100: #f9f9f9;
+  --gray200: #f4f5f7;
+  --gray300: #e5e8ed;
+  --gray400: #d7dadd;
+  --gray500: #b3b7bc;
+  --gray600: #9a9ca5;
+  --gray700: #787a80;
+  --gray800: #424551;
+  --gray900: #1e212c;
+  --border-radius: 4px;
+}
+a.unstyle{
+  text-decoration: none;
+  color: var(--gray800);
+}
+.nonselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.box,
+button,
+input[type="text"] {
+  border-radius: 4px;
+  border: 1px solid var(--gray400);
 }
 img {
   /* pointer-events:painted; */
@@ -24,7 +85,9 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+span,
+details {
   &:hover {
     cursor: default;
   }
@@ -65,17 +128,16 @@ h6 {
   color: #c4c4c4;
 }
 button {
-  border-radius: 4px;
   line-height: 300%;
   white-space: nowrap;
   &.filled {
-    background: $primary;
-    border: $primary;
+    background: var(--primary);
+    border: var(--primary);
     color: white;
   }
   &.empty {
-    color: $primary;
-    border-color: $primary;
+    color: var(--primary);
+    border-color: var(--primary);
     background: none;
   }
   &.unstyle {
@@ -166,90 +228,9 @@ button {
 .left {
   transform: matrix(-1, 0, 0, 1, 0, 0);
 }
-.gray100 {
-  color: $gray100;
+.down {
+  transform: rotate(90deg);
 }
-.gray200 {
-  color: $gray200;
-}
-.gray300 {
-  color: $gray300;
-}
-.gray400 {
-  color: $gray400;
-}
-.gray500 {
-  color: $gray500;
-}
-.gray600 {
-  color: $gray600;
-}
-.gray700 {
-  color: $gray700;
-}
-.gray800 {
-  color: $gray800;
-}
-.gray900 {
-  color: $gray900;
-}
-
-.primary {
-  color: $primary;
-}
-.success {
-  color: $success;
-}
-.danger {
-  color: $danger;
-}
-.warning {
-  color: $warning;
-}
-.info {
-  color: $info;
-}
-
-.primary-background {
-  background: $primary;
-}
-.success-background {
-  background: $success;
-}
-.danger-background {
-  background: $danger;
-}
-.warning-background {
-  background: $warning;
-}
-.info-background {
-  background: $info;
-}
-
-.gray100-background {
-  background: $gray100;
-}
-.gray200-background {
-  background: $gray200;
-}
-.gray300-background {
-  background: $gray300;
-}
-.gray400-background {
-  background: $gray400;
-}
-.gray500-background {
-  background: $gray500;
-}
-.gray600-background {
-  background: $gray600;
-}
-.gray700-background {
-  background: $gray700;
-}
-.gray800-background {
-  background: $gray800;
-}
-.gray900-background {
-  background: $gray900;
+.up {
+  transform: rotate(-90deg);
 }

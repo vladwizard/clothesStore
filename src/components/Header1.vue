@@ -5,7 +5,7 @@ import lineArrowVue from '../assets/lineArrow.vue';
   <header class="small">
     <p>Available 24/7 at <b>(405) 555-0128</b></p>
 
-    <div>
+    <div class="center">
       <p v-for="item in ['Delivery & returns', 'Track order', 'Blog', 'Contacts']">
         {{ item }}
       </p>
@@ -13,11 +13,11 @@ import lineArrowVue from '../assets/lineArrow.vue';
     </div>
     <div>
       <div class="lang">
-        <img src="src/assets/flag-usa.svg" height="12px" width="20px">
+        <img class="notOpacity" src="src/assets/flag-usa.svg" height="12" width="20">
         <p>Eng / $</p>
-        <lineArrowVue />
+        <lineArrowVue class="down" />
       </div>
-      <div>
+      <div class="account">
         <img src="src/assets/man.svg">
         <p>Log in / Register</p>
       </div>
@@ -26,46 +26,48 @@ import lineArrowVue from '../assets/lineArrow.vue';
   </header>
 </template>
 <style lang="scss" scoped>
-header {
-  svg {
-    fill: white;
+p,
+svg,
+img {
+  &:not(.notOpacity) {
+    opacity: 0.8;
   }
+}
 
-  background: #1E212C;
+header {
+  background: var(--gray900);
   height: 44px;
-  display: flex;
-  width: 100%;
+
   color: white;
   justify-content: space-evenly;
-  align-items: center;
-
+  &,
   div {
     display: flex;
     align-items: center;
+  }
+
+  svg {
+    fill: white;
   }
 
   >div:nth-child(2) {
     gap: 32px;
   }
 
-  >div:nth-child(3) {
+  >div:last-child {
     gap: 63px;
 
-    >div:nth-child(1) {
+    .lang {
       p {
         margin: 0 6px 0 12px;
       }
     }
 
-    >div:nth-child(2) {
+    .account {
       gap: 9px
     }
   }
-}
 
-.lang {
-  svg {
-    transform: rotate(90deg);
-  }
+
 }
 </style>
