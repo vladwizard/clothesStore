@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "title": "Black and white sport cap",
+      "price": 18.15,
+      "stars": 5,
+      "image": "src/assets/images/newArrivals/image0.png"
+    },
+    {
+      "title": "Metal bridge sunglasses",
+      "price": 89.95,
+      "stars": 0,
+      "image": "src/assets/images/newArrivals/image1.png"
+    },
+    {
+      "title": "Green baby romper",
+      "price": 20.40,
+      "stars": 4,
+      "image": "src/assets/images/newArrivals/image2.png"
+    },
+    {
+      "title": "Mid-rise slim cropped fit jeans",
+      "price": 40.00,
+      "stars": 0,
+      "image": "src/assets/images/newArrivals/image3.png"
+    },
+    {
+      "title": "Red dangle earrings",
+      "price": 29.95,
+      "stars": 5,
+      "image": "src/assets/images/newArrivals/image4.png"
+    },
+    {
+      "title": "Baby shoes with laces",
+      "price": 30.60,
+      "stars": 0,
+      "image": "src/assets/images/newArrivals/image5.png"
+    }
+  ]
+}

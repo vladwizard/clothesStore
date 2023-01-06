@@ -6,16 +6,20 @@ export declare global {
   };
   type Product = {
     title: string;
-    price: string;
-    stars: string;
+    price: number;
+    stars: number;
     image: string;
+    id: number;
   };
+
   interface FilterList {
-    type: string[];
-    size: string[];
-    color: string[];
-    material: string[];
-    brand: string[];
-    price: string[];
+    peopleCategory: string;
+    types: string[];
+    sizes: string[];
+    colors: string[];
+    materials: string[];
+    brands: string[];
+    prices: number[];
+    add: (category: string, value: string) => void;
   }
 }

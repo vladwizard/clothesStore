@@ -64,13 +64,13 @@ a.unstyle{
   user-select: none;
 }
 .box,
-button,
-input[type="text"] {
+button {
   border-radius: 4px;
   border: 1px solid var(--gray400);
 }
 img {
   /* pointer-events:painted; */
+  user-select: none;
 }
 * {
   padding: 0;

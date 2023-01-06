@@ -1,40 +1,88 @@
 {
   "products": [
     {
-      "title": "Black and white sport cap",
-      "price": "$18.15",
-      "stars": "5",
-      "image": "src/assets/backend/newArrivals/image0.png"
-    },
-    {
-      "title": "Metal bridge sunglasses",
-      "price": "$89.95",
-      "stars": "",
-      "image": "src/assets/backend/newArrivals/image1.png"
-    },
-    {
-      "title": "Green baby romper",
-      "price": "$20.40",
-      "stars": "4",
-      "image": "src/assets/backend/newArrivals/image2.png"
+      "title": "Shirt with insertion lace trims",
+      "price": 49.95,
+      "stars": 5,
+      "image": "src/assets/images/products/image0.png",
+      "id": 0
     },
     {
       "title": "Mid-rise slim cropped fit jeans",
-      "price": "$40.00",
-      "stars": "",
-      "image": "src/assets/backend/newArrivals/image3.png"
+      "price": 40.00,
+      "stars": 0,
+      "image": "src/assets/images/products/image1.png",
+      "id": 1
+    },
+    {
+      "title": "Black and white sport cap",
+      "price": 18.15,
+      "stars": 5,
+      "image": "src/assets/images/products/image2.png",
+      "id": 2
+    },
+    {
+      "title": "Green baby romper",
+      "price": 20.40,
+      "stars": 4,
+      "image": "src/assets/images/products/image3.png",
+      "id": 3
+    },
+    {
+      "title": "Check coat with colour contrast",
+      "price": 183.45,
+      "stars": 0,
+      "image": "src/assets/images/products/image4.png",
+      "id": 4
     },
     {
       "title": "Red dangle earrings",
-      "price": "$29.95",
-      "stars": "5",
-      "image": "src/assets/backend/newArrivals/image4.png"
+      "price": 29.95,
+      "stars": 5,
+      "image": "src/assets/images/products/image5.png",
+      "id": 5
+    },
+    {
+      "title": "Chrono watch with blue...",
+      "price": 120.60,
+      "stars": 4,
+      "image": "src/assets/images/products/image6.png",
+      "id": 6
     },
     {
       "title": "Baby shoes with laces",
-      "price": "$30.60",
-      "stars": "",
-      "image": "src/assets/backend/newArrivals/image5.png"
+      "price": 30.60,
+      "stars": 0,
+      "image": "src/assets/images/products/image7.png",
+      "id": 7
+    },
+    {
+      "title": "Basic hooded sweatshirt in pink",
+      "price": 15.50,
+      "stars": 4,
+      "image": "src/assets/images/products/image8.png",
+      "id": 8
+    },
+    {
+      "title": "Skinny push-up jeans",
+      "price": 40.00,
+      "stars": 0,
+      "image": "src/assets/images/products/image9.png",
+      "id": 9
+    },
+    {
+      "title": "Leather crossbody bag with...",
+      "price": 89.50,
+      "stars": 5,
+      "image": "src/assets/images/products/image10.png",
+      "id": 10
+    },
+    {
+      "title": "Men fashion gray shoes",
+      "price": 85.50,
+      "stars": 0,
+      "image": "src/assets/images/products/image11.png",
+      "id": 11
     }
   ]
 }
