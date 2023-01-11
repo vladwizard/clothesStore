@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import GoodLittleVue from "../common/ProductLittle.vue";
+import ProductLittle from "../Product/ProductLittle.vue";
 import productsJSON from "../../assets/data/products.json";
 
 const products: Product[] = productsJSON.products;
-const ids = [2,4,5,6,8,1]
-const items = products.filter((x)=>x.id in ids)
+const ids = [2, 4, 5, 6, 8, 1];
+const items = products.filter((x) => x.id in ids);
 </script>
 
 <template>
@@ -16,14 +16,7 @@ const items = products.filter((x)=>x.id in ids)
     </p>
 
     <main>
-      <GoodLittleVue
-        v-for="item in items"
-        :title="item.title"
-        :image="item.image"
-        :stars="item.stars"
-        :price="item.price"
-      >
-      </GoodLittleVue>
+      <ProductLittle v-for="item in items" :item="item"> </ProductLittle>
     </main>
     <footer>
       <button></button>
@@ -35,6 +28,7 @@ const items = products.filter((x)=>x.id in ids)
 article {
   > h1 {
     text-align: center;
+    margin-bottom: 60px;
   }
 
   > p {

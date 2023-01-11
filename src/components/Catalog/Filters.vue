@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import CheckboxColorVue from "../functional/CheckboxColor.vue";
+import CheckboxColorVue from "../common/CheckboxColor.vue";
 import { ref } from "vue";
 import Slider from "./slider.vue";
 import filterBlock from "./filterBlock.vue";
-
+import { colors } from "../data";
 defineProps<{ filterList: FilterList }>();
 
 const types = [
@@ -42,20 +42,7 @@ const types = [
   "Socks & tights",
 ];
 const sizes = ["XS", "S", "M", "L ", "XL", "Plus Size"];
-const colors = [
-  { title: "Black", style: "black" },
-  { title: "Blue-gray", style: "#C0DDED" },
-  { title: "Yellow", style: "#FCD164" },
-  { title: "Red", style: "#F75151" },
-  { title: "Dark blue", style: "#0C2C7E" },
-  { title: "Beige", style: "#D8C1AD" },
-  { title: "Brown", style: "#874E19" },
-  { title: "Gray", style: "#9A9494" },
-  { title: "Purple", style: "#A27AC9" },
-  { title: "Green", style: "#67BA92" },
-  { title: "Orange", style: "#FB9620" },
-  { title: "White", style: "#F1F1F1" },
-];
+
 const materials = [
   "Cotton",
   "Synthetics",
@@ -95,6 +82,7 @@ const brands = [
       <main class="table">
         <section v-for="item in colors" red>
           <CheckboxColorVue
+            :value="filterList.colors.find((x) => x == item.title)"
             :color="item.style"
             @click="filterList.add('colors', item.title)"
           />
@@ -122,9 +110,7 @@ const brands = [
       </main>
     </filterBlock>
     <filterBlock title="Price" open>
-      <div>
-        <Slider v-model:value="filterList.prices" />
-      </div>
+      <Slider style="overflow: visible" v-model:value="filterList.prices" />
     </filterBlock>
   </article>
 </template>

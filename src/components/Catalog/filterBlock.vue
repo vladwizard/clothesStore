@@ -1,11 +1,12 @@
 <script setup lang="ts">
-defineProps<{ title: string, findline: boolean }>();
+defineProps<{ title: string; findline: boolean }>();
 </script>
 
 <template>
   <details class="filter_block">
     <summary class="base bold">{{ title }}</summary>
-    <input-search v-if="findline"
+    <input-search
+      v-if="findline"
       class="search extrasmall"
       placeholder="Search the clothes type"
     />
@@ -14,7 +15,7 @@ defineProps<{ title: string, findline: boolean }>();
   </details>
 </template>
 
-<style lang="scss" >
+<style lang="scss">
 .filter_block {
   width: 255px;
   padding-bottom: 20px;
@@ -27,7 +28,7 @@ defineProps<{ title: string, findline: boolean }>();
     border-bottom: 1px solid var(--gray300);
     margin-bottom: 20px;
   }
-  .search{
+  .search {
     margin-bottom: 22.5px;
   }
   > *:last-child {

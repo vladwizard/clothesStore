@@ -1,41 +1,43 @@
 <script setup lang="ts">
-import star from "../../assets/icons/star.vue";
+import StarsVue from "./Stars.vue";
 import heart from "../../assets/icons/heart.vue";
 import { useFavoriteStore } from "../../stores/favorites";
 import { ref } from "vue";
+import PriceBlockVue from "./PriceBlock.vue";
 const favoriteCounter = useFavoriteStore();
 
 const props = defineProps<{
-  image: string;
-  stars: number;
-  price: number;
-  title: string;
-  id: number;
+  item: ProductLittle;
 }>();
-const isFavorite = ref(favoriteCounter.isHere(props.id));
+const isFavorite = ref(favoriteCounter.isHere(props.item.id));
 
 function handleFavoriteClick() {
-  favoriteCounter.Add(props.id);
+  favoriteCounter.Add(props.item.id);
   isFavorite.value = !isFavorite.value;
 }
 </script>
 
 <template>
   <article>
-    <div class="stars" v-if="stars > 0">
-      <star :fill="index - 1 < stars" v-for="index in 5" />
-    </div>
+    <StarsVue class="stars" v-if="item.stars > 0" :stars="item.stars" />
     <div class="favorite-button" @click="handleFavoriteClick">
-      <heart :fill="isFavorite"/>
+      <heart :fill="isFavorite" />
     </div>
-    <img :src="image" alt="" />
+    <img :src="item.image" alt="" />
 
-    <p class="large gray800">{{ title }}</p>
-    <h5 class="gray900">{{ "$" + price }}</h5>
+    <p class="large gray800">{{ item.title }}</p>
+    <h5 class="gray900">{{ "$" + item.price }}</h5>
   </article>
 </template>
 
 <style lang="scss" scoped>
+.old_price {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
 article {
   position: relative;
   width: 285px;
@@ -43,8 +45,6 @@ article {
 }
 .stars {
   position: absolute;
-  display: flex;
-  gap: 3px;
   top: 16px;
   right: 16px;
 }

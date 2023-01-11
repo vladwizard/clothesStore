@@ -59,21 +59,10 @@ article {
         border: 1px solid var(--gray400);
         border-radius: 4px;
         padding: 0 16px;
-        list-style: none;
       }
-      select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        padding-right: 32px;
 
-      }
       > *:nth-child(3) {
         color: var(--gray700);
-      }
-
-      input {
-        width: 48px;
       }
     }
   }

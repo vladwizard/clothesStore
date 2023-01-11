@@ -31,7 +31,7 @@ const items =
 <style lang="scss" scoped>
 h1 {
   text-align: center;
-
+  margin-bottom: 60px;
 }
 
 main {

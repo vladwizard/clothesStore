@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import ButtonArrowVue from '../functional/ButtonArrow.vue';
-import collectionsJson from '../../assets/data/collections.json'
-import { ref } from 'vue';
+import ButtonArrowVue from "../common/ButtonArrow.vue";
+import collectionsJson from "../../assets/data/collections.json";
+import { ref } from "vue";
+
+type Collection = {
+  title: string;
+  category: string;
+  image: string;
+};
 
 const collections: Collection[] = collectionsJson.collections;
 
@@ -9,18 +15,16 @@ const indexC = ref(0);
 function changeCollection(increase: boolean) {
   if (increase) {
     if (indexC.value < collections.length - 1) indexC.value++;
-  }
-  else {
+  } else {
     if (indexC.value > 0) indexC.value--;
   }
-
 }
-
 </script>
 
 <template>
-  <main :style="{ 'background-image': 'url(' + collections[indexC].image + ')' }">
-
+  <main
+    :style="{ 'background-image': 'url(' + collections[indexC].image + ')' }"
+  >
     <ButtonArrowVue class="left" @click="changeCollection(false)" />
     <div class="data">
       <p class="category">{{ collections[indexC].category }}</p>
@@ -28,15 +32,21 @@ function changeCollection(increase: boolean) {
 
       <div class="buttons">
         <button class="empty">Shop sale</button>
-        <button class="filled">Shop the {{ collections[indexC].title.split(' ').slice(0, -1).join(' ') }}</button>
+        <button class="filled">
+          Shop the
+          {{ collections[indexC].title.split(" ").slice(0, -1).join(" ") }}
+        </button>
       </div>
       <div class="switch-block">
-        <div v-for="index in collections.length" :class="{ selected: index == indexC + 1 }" @click="indexC = index - 1">
-          <h3>{{ index< 10? '0' + index : index }}</h3>
-              <div></div>
+        <div
+          v-for="index in collections.length"
+          :class="{ selected: index == indexC + 1 }"
+          @click="indexC = index - 1"
+        >
+          <h3>{{ index < 10 ? "0" + index : index }}</h3>
+          <div></div>
         </div>
       </div>
-
     </div>
 
     <ButtonArrowVue @click="changeCollection(true)" />
@@ -65,7 +75,7 @@ main {
     fill: #424551;
   }
 
-  >button:first-child {
+  > button:first-child {
     svg {
       transform: rotate(-180deg);
     }
@@ -73,13 +83,13 @@ main {
 }
 
 .data {
-  color: #1E212C;
+  color: #1e212c;
   position: absolute;
   left: 345px;
   height: 480px;
   width: 700px;
 
-  >* {
+  > * {
     position: absolute;
   }
 
@@ -98,7 +108,7 @@ main {
     display: flex;
     gap: 24px;
 
-    >button {
+    > button {
       font-weight: 700;
       font-size: 16px;
       line-height: 52px;
@@ -106,30 +116,28 @@ main {
     }
   }
 
-  >.switch-block {
+  > .switch-block {
     top: 399+27px;
     display: flex;
     gap: 4px;
 
-    >div {
+    > div {
       &:not(.selected) {
         opacity: 0.6;
       }
 
-      >h3 {
+      > h3 {
         margin-bottom: 12px;
         color: var(--gray800);
-        ;
       }
 
-      >div {
+      > div {
         width: 178px;
         height: 2px;
         border-radius: 2px;
         background: var(--gray800);
       }
     }
-
   }
 }
 </style>

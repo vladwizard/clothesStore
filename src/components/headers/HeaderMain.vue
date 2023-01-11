@@ -3,25 +3,24 @@ import Logo from "../../assets/icons/logo.vue";
 import Megamenu from "./Megamenu.vue";
 import heart from "../../assets/icons/heart.vue";
 import { ref } from "vue";
-import { useCartStore } from '../../stores/cart'
-import { useFavoriteStore } from '../../stores/favorites'
+import { useCartStore } from "../../stores/cart";
+import { useFavoriteStore } from "../../stores/favorites";
 
 const clickIndex = ref(-1);
 const categories = ["Women", "Men", "Girls", "Boys", "Sale"];
 // stores/counter.js
 
+const cartCounter = useCartStore();
+const favoriteCounter = useFavoriteStore();
 
-const cartCounter = useCartStore()
-const favoriteCounter = useFavoriteStore()
-
-function close(){
-  clickIndex.value = -1
+function close() {
+  clickIndex.value = -1;
 }
 </script>
 <template>
   <header>
     <router-link to="/">
-      <Logo @click="close"/>
+      <Logo @click="close" />
     </router-link>
 
     <div class="categories">
@@ -36,7 +35,7 @@ function close(){
     </div>
     <input-search class="search small" placeholder="Search for products..." />
 
-    <div class="counters base">
+    <div class="counters extrasmall color800">
       <div>
         <heart />
         <p>{{ favoriteCounter.count }}</p>
@@ -44,12 +43,14 @@ function close(){
       <span></span>
       <div>
         <img src="../../assets/icons/cart.svg" />
-        <p>{{ cartCounter.count }}</p>
+        <p :class="{ active: cartCounter.count > 0 }">
+          {{ cartCounter.count }}
+        </p>
       </div>
     </div>
   </header>
   <Megamenu
-    v-if="clickIndex != -1"
+    v-show="clickIndex != -1"
     @close="close"
     :peopleCategory="categories[clickIndex]"
   />
@@ -100,31 +101,33 @@ header {
 }
 
 .counters {
-  div {
+  >*:not(:nth-child(2)) {
     gap: 8.5px;
   }
-
-  span {
+  >*:nth-child(2) {
+    margin: 0 20px;
     height: 22px;
     width: 1px;
     background: linear-gradient(
-      270.01deg,
       rgba(218, 219, 221, 0) 0%,
       rgba(218, 219, 221, 0.5) 12.33%,
       #dadbdd 51.91%,
       rgba(218, 219, 221, 0.5) 87.85%,
       rgba(218, 219, 221, 0) 100%
     );
-    margin: 0 20px;
   }
 
   > div:last-child {
-    p.notzero {
+    p {
       width: 23px;
-      background: #03cea4;
+      height: 20px;
       border-radius: 4px;
       text-align: center;
       line-height: 20px;
+      &.active {
+        background: var(--success);
+        color: white;
+      }
     }
   }
 }

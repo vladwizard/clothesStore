@@ -1,25 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Rubik+Mono+One&display=swap");
-// var(--primary): #17696a;
-// $success: #03cea4;
-// $danger: #ff4242;
-// $warning: #f89828;
-// $info: #5a87fc;
-// $divider-gradient: linear-gradient(
-//   rgba(218, 219, 221, 0) 0%,
-//   rgba(218, 219, 221, 0.5) 12.33%,
-//   #dadbdd 51.91%,
-//   rgba(218, 219, 221, 0.5) 87.85%,
-//   rgba(218, 219, 221, 0) 100%
-// );
-// $gray100: #f9f9f9;
-// $gray200: #f4f5f7;
-// $gray300: #e5e8ed;
-// $gray400: #d7dadd;
-// $gray500: #b3b7bc;
-// $gray600: #9a9ca5;
-// $gray700: #787a80;
-// $gray800: #424551;
-// $gray900: #1e212c;
 
 body {
   font-family: "Lato", sans-serif;
@@ -50,8 +29,46 @@ body {
   --gray800: #424551;
   --gray900: #1e212c;
   --border-radius: 4px;
+  --contentWidth: 1230px;
 }
-a.unstyle{
+@mixin color($color) {
+  color: var($color);
+  svg {
+    fill: $color;
+  }
+  * {
+    color: $color;
+  }
+}
+a{text-decoration: none}
+.gray100 {
+  @include color(--gray100);
+}
+.gray200 {
+  @include color(--gray200);
+}
+.gray300 {
+  @include color(--gray300);
+}
+.gray400 {
+  @include color(--gray400);
+}
+.gray500 {
+  @include color(--gray500);
+}
+.gray600 {
+  @include color(--gray600);
+}
+.gray700 {
+  @include color(--gray700);
+}
+.gray800 {
+  @include color(--gray800);
+}
+.gray900 {
+  @include color(--gray900);
+}
+a.unstyle {
   text-decoration: none;
   color: var(--gray800);
 }
@@ -64,10 +81,33 @@ a.unstyle{
   user-select: none;
 }
 .box,
-button {
+button,
+input,
+select {
   border-radius: 4px;
   border: 1px solid var(--gray400);
 }
+select {
+}
+select::after {
+  content: "24242>";
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  background: red;
+}
+input,
+select {
+  padding: 0 16px 0 16px;
+  height: 44px;
+  box-sizing: border-box;
+  background: none;
+}
+input[type="number"] {
+  padding-left: 16px;
+  width: 80px;
+}
+
 img {
   /* pointer-events:painted; */
   user-select: none;
@@ -76,9 +116,7 @@ img {
   padding: 0;
   margin: 0;
 }
-h1 {
-  margin-bottom: 60px;
-}
+
 h1,
 h2,
 h3,
@@ -141,7 +179,8 @@ button {
     background: none;
   }
   &.unstyle {
-    border: none;
+    //border: none;
+    border: 1px solid transparent;
     background: none;
   }
 }

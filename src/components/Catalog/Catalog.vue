@@ -6,9 +6,8 @@ import FiltersVue from "./Filters.vue";
 import SettingPagging from "./SettingsPagging.vue";
 import { ref, watch, reactive } from "vue";
 import productsJSON from "../../assets/data/products.json";
-import ProductVue from "../common/ProductLittle.vue";
+import ProductVue from "../Product/ProductLittle.vue";
 import { useRoute } from "vue-router";
-import { has } from "lodash";
 
 const products: Product[] = productsJSON.products;
 
@@ -17,7 +16,15 @@ const paggingList = ref({
   showPerPage: 12,
   pageNumber: 1,
 });
+
 const route = useRoute();
+watch(
+  () => route.params.peopleCategory,
+  () => {
+    filterList.peopleCategory = route.params.peopleCategory as string;
+  }
+);
+
 const filterList = reactive({
   peopleCategory: route.params.peopleCategory,
   types: [],
@@ -36,15 +43,12 @@ const filterList = reactive({
     }
   },
 } as FilterList);
-watch(
-  () => route.params.peopleCategory,
-  () => {
-    filterList.peopleCategory = route.params.peopleCategory as string;
-  }
-);
+
+const hidedFilter = ref(false);
 </script>
 
 <template>
+      {{ filterList }}
   <header>
     <div>
       <home />
@@ -57,9 +61,14 @@ watch(
       </p>
     </div>
   </header>
-  <p>{{ filterList }}</p>
-  <main>
-    <button class="hide-button filled" style="grid-area: a">
+
+  <main :class="{ hided_filter: hidedFilter }">
+
+    <button
+      class="hide-button filled"
+      style="grid-area: a"
+      @click="hidedFilter = !hidedFilter"
+    >
       <setting />Hide filters
     </button>
     <SettingPagging
@@ -74,14 +83,7 @@ watch(
     />
 
     <article class="products" style="grid-area: d">
-      <ProductVue
-        v-for="item in products"
-        :title="item.title"
-        :image="item.image"
-        :stars="item.stars"
-        :price="item.price"
-        :id="item.id"
-      />
+      <ProductVue v-for="item in products" :item="item" />
     </article>
     <!-- <SettingPagging class="pagging" :pagging-list="paggingList" /> -->
   </main>
@@ -114,17 +116,27 @@ main {
   display: grid;
 
   gap: 32px 60px;
+
   grid-template:
     "a b " 44px
     "c d " auto/ 255px 915px;
-}
-.products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 413px;
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 413px;
 
-  border-radius: 4px;
-  gap: 60px 30px;
+    border-radius: 4px;
+    gap: 60px 30px;
+  }
+
+  &.hided_filter {
+    grid-template:
+      "a b " 44px
+      "d d " auto/ 255px 915px;
+    .products {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 }
 
 main,

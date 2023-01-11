@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import splitLine from "../common/splitLine.vue";
+import splitLine from "../common/SplitLine.vue";
 const items = [
   newColumn("CLOTHES", [
     "Coats",
@@ -42,7 +42,7 @@ const items = [
   ]),
 ];
 const asideData = {
-  url: "src/assets/backend/schoolchild.png",
+  url: "src/assets/images/schoolchild.png",
   title: "Back to school. Sale up to 50%",
 };
 
@@ -73,7 +73,7 @@ defineProps<{ peopleCategory: string }>();
         </p>
         <router-link @click="$emit('close')"
           class="unstyle"
-          :to="(() => '/catalog/' + peopleCategory.toLocaleLowerCase())()"
+          :to="(() => '/catalog/' + peopleCategory?.toLocaleLowerCase())()"
           v-for="sub in category.subCategories"
         >
           {{ sub }}
