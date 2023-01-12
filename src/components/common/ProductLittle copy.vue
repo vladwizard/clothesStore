@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import StarsVue from "./Stars.vue";
-import heart from "../../assets/icons/heart.vue";
+import heart from "../../assets/icons/Heart.vue";
 import { useFavoriteStore } from "../../stores/favorites";
 import { ref } from "vue";
 import PriceBlockVue from "./PriceBlock.vue";

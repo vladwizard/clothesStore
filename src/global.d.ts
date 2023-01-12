@@ -30,6 +30,6 @@ export declare global {
     materials: string[];
     brands: string[];
     prices: number[];
-    Add: (category: string, value: string) => void;
+    add: (category: string, value: string) => void;
   }
 }

@@ -65,7 +65,7 @@ const brands = [
     <filterBlock title="Clothes" findline>
       <main class="list">
         <section v-for="item in types">
-          <input-checkbox :id="item" @click="filterList.add('types', item)" />
+          <input-checkbox :id="item" :value="filterList.types.includes(item)" @click="filterList.add('types', item)" />
           <label class="small" :for="item">{{ item }}</label>
         </section>
       </main>
@@ -73,16 +73,16 @@ const brands = [
     <filterBlock title="Size">
       <main class="list">
         <section v-for="item in sizes">
-          <input-checkbox :id="item" @click="filterList.add('sizes', item)" />
+          <input-checkbox :id="item" :value="filterList.sizes.includes(item)" @click="filterList.add('sizes', item)" />
           <label class="small" :for="item">{{ item }}</label>
         </section>
       </main>
     </filterBlock>
-    <filterBlock title="Color">
+    <filterBlock title="Color" open>
       <main class="table">
         <section v-for="item in colors" red>
           <CheckboxColorVue
-            :value="filterList.colors.find((x) => x == item.title)"
+            :value="filterList.colors.includes(item.title)"
             :color="item.style"
             @click="filterList.add('colors', item.title)"
           />
@@ -93,7 +93,7 @@ const brands = [
     <filterBlock title="Material" findline>
       <main class="list">
         <section v-for="item in materials">
-          <input-checkbox
+          <input-checkbox :value="filterList.materials.includes(item)"
             :id="item"
             @click="filterList.add('materials', item)"
           />
@@ -104,7 +104,7 @@ const brands = [
     <filterBlock title="Brand" findline>
       <main class="list">
         <section v-for="item in brands">
-          <input-checkbox :id="item" @click="filterList.add('brands', item)" />
+          <input-checkbox  :value="filterList.brands.includes(item)" :id="item" @click="filterList.add('brands', item)" />
           <label class="small" :for="item">{{ item }}</label>
         </section>
       </main>

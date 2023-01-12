@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Logo from "../../assets/icons/logo.vue";
 import Megamenu from "./Megamenu.vue";
-import heart from "../../assets/icons/heart.vue";
+import heart from "../../assets/icons/Heart.vue";
 import { ref } from "vue";
 import { useCartStore } from "../../stores/cart";
 import { useFavoriteStore } from "../../stores/favorites";
@@ -37,12 +37,12 @@ function close() {
 
     <div class="counters extrasmall color800">
       <div>
-        <heart />
+        <img src="src/assets/icons/heart.svg" />
         <p>{{ favoriteCounter.count }}</p>
       </div>
       <span></span>
       <div>
-        <img src="../../assets/icons/cart.svg" />
+        <img src="src/assets/icons/cart.svg" />
         <p :class="{ active: cartCounter.count > 0 }">
           {{ cartCounter.count }}
         </p>

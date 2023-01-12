@@ -3,11 +3,11 @@ import { ref } from "vue";
 // let props = defineProps<{ value: boolean }>();
 // defineEmits(["update:modelValue"]);
 // props.value ? props.value :
-const value = ref(false);
+defineProps<{ value: boolean }>();
 </script>
 
 <template>
-  <div @click="value = !value" :class="{ filled: value }">
+  <div :class="{ filled: value }">
     <svg v-if="value" width="10" height="9" viewBox="0 0 10 9" fill="none">
       <path
         fill-rule="evenodd"
