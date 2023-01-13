@@ -19,6 +19,13 @@ const paggingList = ref({
 });
 const route = useRoute();
 
+// let startValuesFromLocalStorage: string[][] | string[] = ["type", "size", "color", "material", "brand"];
+// startValuesFromLocalStorage = startValuesFromLocalStorage.map((el) => {
+//   let value = localStorage.getItem(el)
+//   return value ? value : []
+// });
+
+// .fill([])
 // for backend request
 const markedList = reactive(
   new MarkedList(
@@ -31,7 +38,6 @@ const markedList = reactive(
     [100, 500]
   )
 );
-
 watch(
   () => route.params.peopleCategory,
   () => {
@@ -52,8 +58,10 @@ const hidedFilter = ref(false);
       <lineArrowVue class="arrow" />
       <p>
         {{
-          markedList.peopleCategory[0].toUpperCase() +
-          markedList.peopleCategory.slice(1)
+          markedList.peopleCategory
+            .split("&")
+            .map((word) => word[0].toUpperCase() + word.slice(1))
+            .join("&")
         }}
       </p>
     </div>
