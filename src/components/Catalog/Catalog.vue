@@ -8,6 +8,7 @@ import { ref, watch, reactive } from "vue";
 import productsJSON from "../../assets/data/products.json";
 import ProductVue from "../Product/ProductLittle.vue";
 import { useRoute } from "vue-router";
+import {MarkedList, FilterList} from "./classes"
 
 const products: Product[] = productsJSON.products;
 
@@ -16,47 +17,31 @@ const paggingList = ref({
   showPerPage: 12,
   pageNumber: 1,
 });
-
 const route = useRoute();
+const markedList = new MarkedList(route.params.peopleCategory as string,[],[],[],[],[],[]);
+
 watch(
   () => route.params.peopleCategory,
   () => {
-    filterList.peopleCategory = route.params.peopleCategory as string;
+    markedList.peopleCategory = route.params.peopleCategory as string;
   }
 );
 
-const filterList = reactive({
-  peopleCategory: route.params.peopleCategory,
-  types: [],
-  sizes: [],
-  colors: [],
-  materials: [],
-  brands: [],
-  prices: [200, 1000],
-  add: function (category: string, value: string) {
-    if (category in this) {
-      let arr = this[category];
-      let index = arr.indexOf(value);
-      if (index != -1) {
-        arr.splice(index, 1);
-      } else arr.push(value);
-    }
-  },
-} as FilterList);
+const filterList = reactive(new FilterList(markedList))
 
 const hidedFilter = ref(false);
 </script>
 
 <template>
-      {{ filterList }}
+      {{ markedList }}
   <header>
     <div>
       <home />
       <lineArrowVue class="arrow" />
       <p>
         {{
-          filterList.peopleCategory[0].toUpperCase() +
-          filterList.peopleCategory.slice(1)
+          markedList.peopleCategory[0].toUpperCase() +
+          markedList.peopleCategory.slice(1)
         }}
       </p>
     </div>
@@ -85,7 +70,7 @@ const hidedFilter = ref(false);
     <article class="products" style="grid-area: d">
       <ProductVue v-for="item in products" :item="item" />
     </article>
-    <!-- <SettingPagging class="pagging" :pagging-list="paggingList" /> -->
+     <SettingPagging class="pagging" :pagging-list="paggingList" /> 
   </main>
 </template>
 
