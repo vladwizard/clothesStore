@@ -4,7 +4,7 @@ import { ref, reactive } from "vue";
 import PriceBlockVue from "./PriceBlock.vue";
 import SaleMark from "../common/SaleMark.vue";
 import StarsVue from "./Stars.vue";
-import { colors } from "../data";
+import { colorsDictionary } from "../data";
 import CheckboxColorVue from "../common/CheckboxColor.vue";
 import { useCartStore } from "../../stores/cart";
 import { useRoute } from "vue-router";
@@ -17,11 +17,10 @@ const id = Number(route.params.id);
 const products: Product[] = productsJSON.products;
 let item = products.find((x) => x.id == id);
 if (item == undefined) item = new Object() as Product;
-const myColors = colors.filter((x) => item?.colors.includes(x.title));
 const selectedSection = ref(0);
 
 const settings = reactive({
-  color: myColors[0].title,
+  color: item.colors[0],
   size: item.sizes[0],
   count: 1,
 });
@@ -71,10 +70,10 @@ const settings = reactive({
             <p class="label gray800 small">Color</p>
             <div>
               <CheckboxColorVue
-                v-for="(color, index) in myColors"
-                :color="color.style"
-                :value="settings.color == color.title"
-                @click="settings.color = color.title"
+                v-for="(title, index) in item.colors"
+                :color="colorsDictionary[title]"
+                :value="settings.color == title"
+                @click="settings.color = title"
               />
               <p class="small gray600">{{ settings.color }}</p>
             </div>

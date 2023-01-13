@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-const props = defineProps<{ color: string; value: boolean }>();
+defineProps<{ color: string; value: boolean }>();
 </script>
 
 <template>
