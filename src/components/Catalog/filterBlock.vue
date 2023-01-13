@@ -1,5 +1,6 @@
 <script setup lang="ts">
-defineProps<{ title: string; findline: boolean }>();
+defineProps<{ title: string; findline?: boolean }>();
+
 </script>
 
 <template>

@@ -40,7 +40,6 @@ export class FilterCell {
   toggle() {
     if (this.value == false) this.markedCategoryList.push(this.title)
     else this.markedCategoryList.splice(this.markedCategoryList.indexOf(this.title),1)
-    console.log(this.markedCategoryList)
     this.value = !this.value;
   }
 }

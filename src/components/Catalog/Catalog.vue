@@ -8,7 +8,7 @@ import { ref, watch, reactive } from "vue";
 import productsJSON from "../../assets/data/products.json";
 import ProductVue from "../Product/ProductLittle.vue";
 import { useRoute } from "vue-router";
-import {MarkedList, FilterList} from "./structures"
+import { MarkedList, FilterList } from "./structures";
 
 const products: Product[] = productsJSON.products;
 
@@ -20,7 +20,17 @@ const paggingList = ref({
 const route = useRoute();
 
 // for backend request
-const markedList = reactive(new MarkedList(route.params.peopleCategory as string,[],[],[],[],[],[100,500]));
+const markedList = reactive(
+  new MarkedList(
+    route.params.peopleCategory as string,
+    [],
+    [],
+    [],
+    [],
+    [],
+    [100, 500]
+  )
+);
 
 watch(
   () => route.params.peopleCategory,
@@ -29,13 +39,13 @@ watch(
   }
 );
 
-const filterList = reactive(new FilterList(markedList))
+const filterList = reactive(new FilterList(markedList));
 
 const hidedFilter = ref(false);
 </script>
 
 <template>
-      {{ markedList }}
+  {{ markedList }}
   <header>
     <div>
       <home />
@@ -50,10 +60,9 @@ const hidedFilter = ref(false);
   </header>
 
   <main :class="{ hided_filter: hidedFilter }">
-
     <button
       class="hide-button filled"
-      style="grid-area: a"
+      style="grid-area: hideButton"
       @click="hidedFilter = !hidedFilter"
     >
       <setting />Hide filters
@@ -61,18 +70,22 @@ const hidedFilter = ref(false);
     <SettingPagging
       class="pagging"
       :pagging-list="paggingList"
-      style="grid-area: b"
+      style="grid-area: pagging1"
     />
     <FiltersVue
       class="filters"
       :filter-list="filterList"
-      style="grid-area: c"
+      style="grid-area: filters"
     />
 
-    <article class="products" style="grid-area: d">
+    <article class="products" style="grid-area: products">
       <ProductVue v-for="item in products" :item="item" />
     </article>
-     <SettingPagging class="pagging" :pagging-list="paggingList" /> 
+    <SettingPagging
+      class="pagging"
+      :pagging-list="paggingList"
+      style="grid-area: pagging2"
+    />
   </main>
 </template>
 
@@ -105,8 +118,9 @@ main {
   gap: 32px 60px;
 
   grid-template:
-    "a b " 44px
-    "c d " auto/ 255px 915px;
+    "hideButton pagging1 " 44px
+    "filters products " auto
+    ". pagging2 " auto/ 255px 915px;
   .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -118,10 +132,14 @@ main {
 
   &.hided_filter {
     grid-template:
-      "a b " 44px
-      "d d " auto/ 255px 915px;
+      "hideButton pagging1 " 44px
+      "products products " auto
+      ". pagging2 " auto/ 255px 915px;
     .products {
       grid-template-columns: repeat(4, 1fr);
+    }
+    .filters {
+      display: none;
     }
   }
 }

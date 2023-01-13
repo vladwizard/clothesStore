@@ -4,7 +4,8 @@ import heart from "../../assets/icons/Heart.vue";
 import { useFavoriteStore } from "../../stores/favorites";
 import { ref } from "vue";
 import PriceBlockVue from "./PriceBlock.vue";
-import SaleMarkVue from "./SaleMark.vue";
+import SaleMark from "../common/SaleMark.vue";
+
 const favoriteCounter = useFavoriteStore();
 
 const props = defineProps<{
@@ -22,6 +23,7 @@ function handleFavoriteClick() {
   <article>
     <router-link :to="'/product/' + item.id">
       <SaleMark
+        v-if="item.oldPrice != undefined"
         class="sale_mark"
         :price="item.price"
         :oldPrice="item.oldPrice"

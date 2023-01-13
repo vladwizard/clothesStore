@@ -49,7 +49,7 @@ const asideData = {
 function newColumn(title: string, subCategories: string[]) {
   return { title, subCategories };
 }
-defineProps<{ peopleCategory: string }>();
+defineProps<{ peopleCategory?: string  }>();
 
 </script>
 <template>

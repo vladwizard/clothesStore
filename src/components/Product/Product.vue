@@ -9,7 +9,6 @@ import CheckboxColorVue from "../common/CheckboxColor.vue";
 import { useCartStore } from "../../stores/cart";
 import { useRoute } from "vue-router";
 
-// const props = defineProps<{ id: number }>();
 const cartCounter = useCartStore();
 const route = useRoute();
 const id = Number(route.params.id);
@@ -55,14 +54,13 @@ const settings = reactive({
         <div class="settings_block">
           <section class="price_block">
             <div>
-              <PriceBlockVue v-if="item.oldPrice">
+              <PriceBlockVue>
                 <h5 class="gray900 price">{{ "$" + item.price }}</h5>
                 <span class="old_price" v-if="item.oldPrice">{{
                   "$" + item.oldPrice
                 }}</span>
               </PriceBlockVue>
-              <h5 class="gray900" v-else>{{ "$" + item.price }}</h5>
-              <SaleMark :price="item.price" :old-price="item.oldPrice" />
+              <SaleMark v-if="item.oldPrice" :price="item.price" :old-price="item.oldPrice" />
             </div>
             <StarsVue class="stars" :stars="item.stars" />
           </section>
@@ -70,7 +68,7 @@ const settings = reactive({
             <p class="label gray800 small">Color</p>
             <div>
               <CheckboxColorVue
-                v-for="(title, index) in item.colors"
+                v-for="(title) in item.colors"
                 :color="colorsDictionary[title]"
                 :value="settings.color == title"
                 @click="settings.color = title"

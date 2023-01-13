@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps<{ price: number; oldPrice: number  | undefined }>();
+defineProps<{ price: number; oldPrice: number }>();
 </script>
 
 <template>
-  <div class="base bold sale_mark" v-if="oldPrice != undefined">
+  <div class="base bold sale_mark">
     {{ Math.floor(-(1 - price / oldPrice) * 100) + "%" }}
   </div>
 </template>
