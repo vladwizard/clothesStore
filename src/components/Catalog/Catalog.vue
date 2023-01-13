@@ -8,7 +8,7 @@ import { ref, watch, reactive } from "vue";
 import productsJSON from "../../assets/data/products.json";
 import ProductVue from "../Product/ProductLittle.vue";
 import { useRoute } from "vue-router";
-import {MarkedList, FilterList} from "./classes"
+import {MarkedList, FilterList} from "./structures"
 
 const products: Product[] = productsJSON.products;
 
@@ -18,7 +18,9 @@ const paggingList = ref({
   pageNumber: 1,
 });
 const route = useRoute();
-const markedList = new MarkedList(route.params.peopleCategory as string,[],[],[],[],[],[]);
+
+// for backend request
+const markedList = reactive(new MarkedList(route.params.peopleCategory as string,[],[],[],[],[],[100,500]));
 
 watch(
   () => route.params.peopleCategory,

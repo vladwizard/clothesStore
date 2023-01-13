@@ -22,8 +22,4 @@ export declare global {
     size: string;
     id: number;
   };
-  class User {
-    constructor(name) { this.name = name; }
-    sayHi() { alert(this.name); }
-  }
 }

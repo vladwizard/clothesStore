@@ -3,64 +3,42 @@ import CheckboxColorVue from "../common/CheckboxColor.vue";
 
 import Slider from "./slider.vue";
 import filterBlock from "./filterBlock.vue";
-import { colors } from "../data";
-import { FilterList} from "./classes"
-import asd from "./asd.vue"
-defineProps<{ filterList: FilterList }>();
-
-
+import { colorsDictionary } from "../data";
+import { FilterList, MarkedList } from "./structures";
+import FilterLine from "./FilterLine.vue";
+import FilterColorCell from "./FilterColorCell.vue";
+defineProps<{ filterList: FilterList}>();
 </script>
 
 <template>
   <article>
     <filterBlock title="Clothes" findline>
       <main class="list">
-        <asd :item="item" v-for="item in filterList.types">
-
-        </asd>
+        <FilterLine :item="item" v-for="item in filterList.types" />
       </main>
     </filterBlock>
     <filterBlock title="Size">
       <main class="list">
-        <section v-for="item in filterList.sizes">
-          <input-checkbox :id="item" :value="filterList.sizes.includes(item)" @click="filterList.add('sizes', item)" />
-          <label class="small" :for="item">{{ item }}</label>
-        </section>
+        <FilterLine :item="item" v-for="item in filterList.sizes" />
       </main>
     </filterBlock>
     <filterBlock title="Color" open>
       <main class="table">
-        <section v-for="item in colors" red>
-          <CheckboxColorVue
-            :value="filterList.colors.includes(item.title)"
-            :color="item.style"
-            @click="filterList.add('colors', item.title)"
-          />
-          <label class="extrasmall">{{ item.title }}</label>
-        </section>
+          <FilterColorCell :item="item" v-for="item in filterList.colors" :color="colorsDictionary[item.title]"/>
       </main>
     </filterBlock>
     <filterBlock title="Material" findline>
       <main class="list">
-        <section v-for="item in materials">
-          <input-checkbox :value="filterList.materials.includes(item)"
-            :id="item"
-            @click="filterList.add('materials', item)"
-          />
-          <label class="small" :for="item">{{ item }}</label>
-        </section>
+        <FilterLine :item="item" v-for="item in filterList.materials" />
       </main>
     </filterBlock>
     <filterBlock title="Brand" findline>
       <main class="list">
-        <section v-for="item in brands">
-          <input-checkbox  :value="filterList.brands.includes(item)" :id="item" @click="filterList.add('brands', item)" />
-          <label class="small" :for="item">{{ item }}</label>
-        </section>
+        <FilterLine :item="item" v-for="item in filterList.brands" />
       </main>
     </filterBlock>
     <filterBlock title="Price" open>
-      <Slider style="overflow: visible" v-model:value="filterList.prices" />
+      <Slider style="overflow: visible" v-model:value="filterList.markedList.prices" />
     </filterBlock>
   </article>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FilterCell } from './classes';
+import { FilterCell } from './structures';
 defineProps<{item:FilterCell}>()
 </script>
 
