@@ -1,40 +1,3 @@
-interface Data {
-  types: any[];
-  sizes: any[];
-  colors: any[];
-  materials: any[];
-  brands: any[];
-}
-
-export class MarkedList implements Data {
-  peopleCategory: string;
-
-  types: string[];
-  sizes: string[];
-  colors: string[];
-  materials: string[];
-  brands: string[];
-  prices: number[];
-  constructor(
-    peopleCategory: string,
-    types: string[],
-    sizes: string[],
-    colors: string[],
-    materials: string[],
-    brands: string[],
-    prices: number[]
-  ) {
-    this.peopleCategory = peopleCategory;
-
-    this.types = types;
-    this.sizes = sizes;
-    this.colors = colors;
-    this.materials = materials;
-    this.brands = brands;
-    this.prices = prices;
-  }
-}
-
 export class FilterCell {
   title: string;
   value: boolean;
@@ -56,7 +19,8 @@ export class FilterCell {
   }
 }
 
-export class FilterList implements Data {
+
+export class FilterList {
   types: FilterCell[];
   sizes: FilterCell[];
   colors: FilterCell[];
@@ -72,15 +36,22 @@ export class FilterList implements Data {
       this[category] = values.map(
         (title) => new FilterCell(title, markedList[category])
       );
+        console.log(markedList[category])
+        markedList[category].forEach(element => {
+          let cell = this[category].find((item) => item.title == element)
+          if(cell != undefined) cell.value = true;
+        });
+
+         
+          // this[category].find((item) => item.title == marked).value = true;
+
       // заполнить true что отмеченты во входящем markedList. Лутше переписать FilterCell
-      for (const marked in markedList[category]) {
-        this[category].find((item) => item.title == marked).value = true;
-      }
+
     }
   }
 }
 import { colorsDictionary } from "../data";
-const data: Data = {
+const data = {
   colors: Object.keys(colorsDictionary),
   types: [
     "Coats",

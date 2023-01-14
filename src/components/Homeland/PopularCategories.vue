@@ -1,16 +1,40 @@
 <script setup lang="ts">
-const items = [
-  { title: "Tops", url: "src/assets/images/popularCategories/image0.png" },
-  { title: "T-shirts", url: "src/assets/images/popularCategories/image1.png" },
-  { title: "Caps", url: "src/assets/images/popularCategories/image2.png" },
-  { title: "Sandals", url: "src/assets/images/popularCategories/image3.png" },
-  { title: "Jackets", url: "src/assets/images/popularCategories/image4.png" },
-  { title: "Coats", url: "src/assets/images/popularCategories/image5.png" },
-];
+import { useFilterStore } from "../../stores/catalogFilter";
 
-function HandleClick(type: string) {
-  localStorage.setItem("type", type);
-}
+const filterList = useFilterStore();
+
+const items = [
+  {
+    filterValue: "T-shirts & tops",
+    title: "Tops",
+    url: "src/assets/images/popularCategories/image0.png",
+  },
+  {
+    filterValue: "T-shirts & tops",
+    title: "T-shirts",
+    url: "src/assets/images/popularCategories/image1.png",
+  },
+  {
+    filterValue: "Caps",
+    title: "Caps",
+    url: "src/assets/images/popularCategories/image2.png",
+  },
+  {
+    filterValue: "Sabdals",
+    title: "Sandals",
+    url: "src/assets/images/popularCategories/image3.png",
+  },
+  {
+    filterValue: "Jackets",
+    title: "Jackets",
+    url: "src/assets/images/popularCategories/image4.png",
+  },
+  {
+    filterValue: "Coats",
+    title: "Coats",
+    url: "src/assets/images/popularCategories/image5.png",
+  },
+];
 </script>
 
 <template>
@@ -20,7 +44,7 @@ function HandleClick(type: string) {
       <router-link
         to="/catalog"
         v-for="item in items"
-        @click="HandleClick(item.title)"
+        @click="filterList.SetTypes([item.filterValue])"
       >
         <img :src="item.url" alt="" />
 

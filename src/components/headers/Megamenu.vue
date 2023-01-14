@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 import splitLine from "../common/SplitLine.vue";
+import { useFilterStore } from "../../stores/catalogFilter";
+
+const filterList = useFilterStore();
+
 const items = [
   newColumn("CLOTHES", [
     "Coats",
@@ -49,8 +53,7 @@ const asideData = {
 function newColumn(title: string, subCategories: string[]) {
   return { title, subCategories };
 }
-defineProps<{ peopleCategory?: string  }>();
-
+defineProps<{ peopleCategory?: string }>();
 </script>
 <template>
   <article class="shadow-large">
@@ -71,9 +74,15 @@ defineProps<{ peopleCategory?: string  }>();
         <p>
           <span class="title gray900">{{ category.title }}</span>
         </p>
-        <router-link @click="$emit('close')"
+        <router-link
+          @click="
+            () => {
+              $emit('close');
+              filterList.SetPeople(peopleCategory)
+            }
+          "
           class="unstyle"
-          :to="(() => '/catalog/' + peopleCategory?.toLocaleLowerCase())()"
+          to="/catalog/"
           v-for="sub in category.subCategories"
         >
           {{ sub }}

@@ -9,6 +9,7 @@ import productsJSON from "../../assets/data/products.json";
 import ProductVue from "../Product/ProductLittle.vue";
 import { useRoute } from "vue-router";
 import { MarkedList, FilterList } from "./structures";
+import { useFilterStore } from "../../stores/catalogFilter";
 
 const products: Product[] = productsJSON.products;
 
@@ -19,25 +20,11 @@ const paggingList = ref({
 });
 const route = useRoute();
 
-// let startValuesFromLocalStorage: string[][] | string[] = ["type", "size", "color", "material", "brand"];
-// startValuesFromLocalStorage = startValuesFromLocalStorage.map((el) => {
-//   let value = localStorage.getItem(el)
-//   return value ? value : []
-// });
+const filterStore = useFilterStore();
 
-// .fill([])
 // for backend request
-const markedList = reactive(
-  new MarkedList(
-    route.params.peopleCategory as string,
-    [],
-    [],
-    [],
-    [],
-    [],
-    [100, 500]
-  )
-);
+
+const markedList = filterStore.Get()
 watch(
   () => route.params.peopleCategory,
   () => {

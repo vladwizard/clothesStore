@@ -19,7 +19,7 @@ import ProductVue from "./components/Product/Product.vue";
 const routes = [
   { path: "", component: Homeland },
   { path: "/product/:id", component: ProductVue },
-  { path: "/catalog/:peopleCategory", component: Catalog },
+  { path: "/catalog/", component: Catalog },
 
 ];
 const router = createRouter({

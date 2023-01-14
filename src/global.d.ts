@@ -22,4 +22,14 @@ export declare global {
     size: string;
     id: number;
   };
+  interface MarkedList {
+    peopleCategory: string;
+
+    types: string[];
+    sizes: string[];
+    colors: string[];
+    materials: string[];
+    brands: string[];
+    prices: number[];
+  }
 }

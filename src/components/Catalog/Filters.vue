@@ -4,7 +4,7 @@ import CheckboxColorVue from "../common/CheckboxColor.vue";
 import Slider from "./slider.vue";
 import filterBlock from "./filterBlock.vue";
 import { colorsDictionary } from "../data";
-import { FilterList, MarkedList } from "./structures";
+import { FilterList} from "./structures";
 import FilterLine from "./FilterLine.vue";
 import FilterColorCell from "./FilterColorCell.vue";
 defineProps<{ filterList: FilterList}>();
