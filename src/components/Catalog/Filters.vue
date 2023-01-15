@@ -1,50 +1,61 @@
 <script setup lang="ts">
-import CheckboxColorVue from "../common/CheckboxColor.vue";
-
+import EnumerableBlock from "./EnumerableBlock.vue";
 import Slider from "./slider.vue";
 import filterBlock from "./filterBlock.vue";
-import { colorsDictionary } from "../data";
-import { FilterList} from "./structures";
-import FilterLine from "./FilterLine.vue";
 import FilterColorCell from "./FilterColorCell.vue";
-defineProps<{ filterList: FilterList}>();
+import enumeratedFilterData from "../data";
+import { MarkedList } from "../../stores/catalogFilter";
+
+defineProps<{ markedList: MarkedList }>();
 </script>
 
 <template>
-  <article>
-    <filterBlock title="Clothes" findline>
-      <main class="list">
-        <FilterLine :item="item" v-for="item in filterList.types" />
-      </main>
+  <article class="filters_block">
+    <filterBlock title="Clothes" findline open>
+      <EnumerableBlock
+        class="list"
+        :marked-list="markedList.types"
+        :list="enumeratedFilterData.types"
+      />
     </filterBlock>
     <filterBlock title="Size">
-      <main class="list">
-        <FilterLine :item="item" v-for="item in filterList.sizes" />
-      </main>
+      <EnumerableBlock
+        class="list"
+        :marked-list="markedList.sizes"
+        :list="enumeratedFilterData.sizes"
+      />
     </filterBlock>
+
     <filterBlock title="Color" open>
-      <main class="table">
-          <FilterColorCell :item="item" v-for="item in filterList.colors" :color="colorsDictionary[item.title]"/>
-      </main>
+      <EnumerableBlock
+        class="table"
+        :component="FilterColorCell"
+        :marked-list="markedList.colors"
+        :list="enumeratedFilterData.colors"
+      />
     </filterBlock>
     <filterBlock title="Material" findline>
-      <main class="list">
-        <FilterLine :item="item" v-for="item in filterList.materials" />
-      </main>
+      <EnumerableBlock
+        class="list"
+        :marked-list="markedList.materials"
+        :list="enumeratedFilterData.materials"
+      />
     </filterBlock>
     <filterBlock title="Brand" findline>
-      <main class="list">
-        <FilterLine :item="item" v-for="item in filterList.brands" />
-      </main>
+      <EnumerableBlock
+        class="list"
+        :marked-list="markedList.brands"
+        :list="enumeratedFilterData.brands"
+      />
     </filterBlock>
     <filterBlock title="Price" open>
-      <Slider style="overflow: visible" v-model:value="filterList.markedList.prices" />
+      <Slider style="overflow: visible" v-model:value="markedList.prices" />
     </filterBlock>
   </article>
 </template>
 
-<style lang="scss" scoped>
-article {
+<style lang="scss">
+.filters_block {
   display: flex;
   flex-direction: column;
 }

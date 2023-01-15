@@ -22,14 +22,10 @@ export declare global {
     size: string;
     id: number;
   };
-  interface MarkedList {
-    peopleCategory: string;
+  interface FilterCell {
+    title: string;
+    value: boolean;
 
-    types: string[];
-    sizes: string[];
-    colors: string[];
-    materials: string[];
-    brands: string[];
-    prices: number[];
+    toggle: () => void;
   }
 }

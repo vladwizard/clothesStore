@@ -8,7 +8,6 @@ import { ref, watch, reactive } from "vue";
 import productsJSON from "../../assets/data/products.json";
 import ProductVue from "../Product/ProductLittle.vue";
 import { useRoute } from "vue-router";
-import { FilterList } from "./structures";
 import { useFilterStore } from "../../stores/catalogFilter";
 
 const products: Product[] = productsJSON.products;
@@ -25,8 +24,6 @@ const filterStore = useFilterStore();
 // for backend request
 
 let markedList = filterStore.markedList
-
-let filterList = reactive(new FilterList(markedList));
 
 const hidedFilter = ref(false);
 </script>
@@ -63,7 +60,7 @@ const hidedFilter = ref(false);
     />
     <FiltersVue
       class="filters"
-      :filter-list="filterList"
+      :marked-list="markedList"
       style="grid-area: filters"
     />
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { FilterCell } from './structures';
-defineProps<{item:FilterCell}>()
+
+defineProps<{ item: FilterCell }>();
 </script>
 
 <template>
@@ -8,6 +8,7 @@ defineProps<{item:FilterCell}>()
     <input-checkbox :value="item.value" @click="item.toggle()" />
     <label class="small">{{ item.title }}</label>
   </section>
+  <slot></slot>
 </template>
 
 <style lang="scss" scoped></style>
