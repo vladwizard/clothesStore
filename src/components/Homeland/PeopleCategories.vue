@@ -1,21 +1,34 @@
 <script setup lang="ts">
 import { useFilterStore } from "../../stores/catalogFilter";
 
-const filterList = useFilterStore();
+const filterStore = useFilterStore();
 
-const items =
-  [{ title: 'Women’s', url: 'src/assets/images/peopleCategories/image0.png',category:'women' },
-  { title: 'Men’s', url: 'src/assets/images/peopleCategories/image1.png',category:'men'},
-  { title: 'Kids’', url: 'src/assets/images/peopleCategories/image2.png', category:'boys&girls'}]
+const items = [
+  {
+    title: "Women’s",
+    url: "src/assets/images/peopleCategories/image0.png",
+    category: "women",
+  },
+  {
+    title: "Men’s",
+    url: "src/assets/images/peopleCategories/image1.png",
+    category: "men",
+  },
+  {
+    title: "Kids’",
+    url: "src/assets/images/peopleCategories/image2.png",
+    category: "boys&girls",
+  },
+];
 </script>
 
 <template>
   <article class="PeopleCategories">
-    <div v-for="item in items" @click="filterList.SetPeople(item.category)">
+    <div v-for="item in items" @click="filterStore.SetPeople(item.category)">
       <router-link to="/catalog">
-      <img :src='item.url' height="390" width="390">
-      <p class="lead bold gray800">{{ item.title }}</p>
-    </router-link>
+        <img :src="item.url" height="390" width="390" />
+        <p class="lead bold gray800">{{ item.title }}</p>
+      </router-link>
     </div>
   </article>
 </template>
@@ -39,6 +52,5 @@ article {
 
     text-align: center;
   }
-
 }
 </style>

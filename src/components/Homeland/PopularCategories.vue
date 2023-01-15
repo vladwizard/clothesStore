@@ -15,12 +15,12 @@ const items = [
     url: "src/assets/images/popularCategories/image1.png",
   },
   {
-    filterValue: "Caps",
+    filterValue: "Hats & scarves",
     title: "Caps",
     url: "src/assets/images/popularCategories/image2.png",
   },
   {
-    filterValue: "Sabdals",
+    filterValue: "Sandals",
     title: "Sandals",
     url: "src/assets/images/popularCategories/image3.png",
   },

@@ -36,7 +36,6 @@ export class FilterList {
       this[category] = values.map(
         (title) => new FilterCell(title, markedList[category])
       );
-        console.log(markedList[category])
         markedList[category].forEach(element => {
           let cell = this[category].find((item) => item.title == element)
           if(cell != undefined) cell.value = true;
