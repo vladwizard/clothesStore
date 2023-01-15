@@ -22,4 +22,10 @@ export declare global {
     size: string;
     id: number;
   };
+  interface FilterCell {
+    title: string;
+    value: boolean;
+
+    toggle: () => void;
+  }
 }

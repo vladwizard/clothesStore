@@ -8,7 +8,7 @@ import { ref, watch, reactive } from "vue";
 import productsJSON from "../../assets/data/products.json";
 import ProductVue from "../Product/ProductLittle.vue";
 import { useRoute } from "vue-router";
-import { MarkedList, FilterList } from "./structures";
+import { useFilterStore } from "../../stores/catalogFilter";
 
 const products: Product[] = productsJSON.products;
 
@@ -19,27 +19,11 @@ const paggingList = ref({
 });
 const route = useRoute();
 
+const filterStore = useFilterStore();
+
 // for backend request
-const markedList = reactive(
-  new MarkedList(
-    route.params.peopleCategory as string,
-    [],
-    [],
-    [],
-    [],
-    [],
-    [100, 500]
-  )
-);
 
-watch(
-  () => route.params.peopleCategory,
-  () => {
-    markedList.peopleCategory = route.params.peopleCategory as string;
-  }
-);
-
-const filterList = reactive(new FilterList(markedList));
+let markedList = filterStore.markedList
 
 const hidedFilter = ref(false);
 </script>
@@ -52,8 +36,10 @@ const hidedFilter = ref(false);
       <lineArrowVue class="arrow" />
       <p>
         {{
-          markedList.peopleCategory[0].toUpperCase() +
-          markedList.peopleCategory.slice(1)
+          markedList.peopleCategory
+            .split("&")
+            .map((word) => word[0].toUpperCase() + word.slice(1))
+            .join("&")
         }}
       </p>
     </div>
@@ -74,7 +60,7 @@ const hidedFilter = ref(false);
     />
     <FiltersVue
       class="filters"
-      :filter-list="filterList"
+      :marked-list="markedList"
       style="grid-area: filters"
     />
 
