@@ -1,11 +1,20 @@
 <script lang="ts" setup>
 import splitLine from "../common/SplitLine.vue";
 import { useFilterStore } from "../../stores/catalogFilter";
+import TypeCell from "./TypeCell.vue";
 
 const filterStore = useFilterStore();
-
-const items = [
-  newColumn("CLOTHES", [
+class LinkCell {
+  title: string;
+  constructor(title: string) {
+    this.title = title;
+  }
+  click() {
+    filterStore.Set(peopleCategory as string, [this.title]);
+  }
+}
+const items = {
+  CLOTHES: [
     "Coats",
     "Jackets",
     "Suits",
@@ -20,8 +29,8 @@ const items = [
     "Lingerie & nightwear",
     "Sportswear",
     "Swimwear",
-  ]),
-  newColumn("SHOES", [
+  ],
+  SHOES: [
     "Boots",
     "Flat shoes",
     "Heels",
@@ -31,8 +40,8 @@ const items = [
     "Slippers",
     "Sneakers",
     "Leather",
-  ]),
-  newColumn("ACCESSORIES", [
+  ],
+  ACCESSORIES: [
     "Bags & bagpacks",
     "Hats & scarves",
     "Hair accessories",
@@ -43,20 +52,18 @@ const items = [
     "Purses",
     "Gloves",
     "Socks & tights",
-  ]),
-];
+  ],
+};
 const asideData = {
   url: "src/assets/images/schoolchild.png",
   title: "Back to school. Sale up to 50%",
 };
 
-function newColumn(title: string, subCategories: string[]) {
-  return { title, subCategories };
-}
+const peopleCategory = "women";
 defineProps<{ peopleCategory?: string }>();
 </script>
 <template>
-  <article class="shadow-large">
+  <article class="shadow-large megamenu">
     <main class="small gray 800">
       <div>
         <p
@@ -70,23 +77,13 @@ defineProps<{ peopleCategory?: string }>();
           {{ item }}
         </p>
       </div>
-      <div v-for="category in items">
+      <div v-for="(types, people) in items">
         <p>
-          <span class="title gray900">{{ category.title }}</span>
+          <span class="title gray900">{{ people }}</span>
         </p>
-        <router-link
-          v-for="sub in category.subCategories"
-          @click="
-            () => {
-              $emit('close');           
-              filterStore.Set(peopleCategory as string,[sub]);
-            }
-          "
-          class="unstyle"
-          to="/catalog/"
-        >
-          {{ sub }}
-        </router-link>
+        <div @click="$emit('close')">
+          <TypeCell :list="types" people-category="men"></TypeCell>
+        </div>
       </div>
     </main>
     <splitLine style="width: 1px; height: 427px; margin: 0 68px" />
@@ -97,8 +94,8 @@ defineProps<{ peopleCategory?: string }>();
     </aside>
   </article>
 </template>
-<style lang="scss" scoped>
-article {
+<style lang="scss">
+.megamenu {
   position: absolute;
   width: 100%;
   z-index: 100;
@@ -109,45 +106,40 @@ article {
   background: #ffffff;
   border: 1px solid var(--gray300);
   border-radius: 0px 0px 4px 4px;
-}
 
-main {
-  font-size: 14px;
-  display: flex;
+  > main {
+    font-size: 14px;
+    display: flex;
 
-  > div {
-    width: 210px;
-  }
+    > div {
+      width: 210px;
+    }
 
-  p,
-  span,
-  a {
-    height: 21px;
-    margin-bottom: 8px;
-  }
-  a {
-    display: block;
-  }
-  > div:first-child {
-    > *:last-child {
-      color: #ff4242;
+    p,
+    span,
+    a {
+      height: 21px;
+      margin-bottom: 8px;
+    }
+    a {
+      display: block;
+    }
+    > div:first-child {
+      > *:last-child {
+        color: #ff4242;
+      }
     }
   }
-}
 
-aside {
-  > button {
-    font-size: 12px;
-    padding: 0 24px;
+  > aside {
+    > button {
+      font-size: 12px;
+      padding: 0 24px;
+    }
+
+    > p {
+      margin: 16px 0;
+    }
   }
-
-  > p {
-    margin: 16px 0;
-  }
-}
-
-.title {
-  font-weight: 700;
-  letter-spacing: 1px;
 }
 </style>

@@ -24,7 +24,7 @@ class FilterCell {
     this.value = !this.value;
   }
 }
-// { list: string[]; markedList: EnumerableList }
+
 let props = defineProps({
   component: {
     default: FilterLine,
@@ -55,7 +55,7 @@ watch(
     computedList.value = ComputeList();
   }
 );
-console.log(props.component);
+
 </script>
 
 <template>

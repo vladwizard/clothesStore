@@ -25,7 +25,6 @@
   }
 
   //второй
-
   > *:nth-child(2) {
     color: var(--gray700);
     text-decoration-line: line-through;

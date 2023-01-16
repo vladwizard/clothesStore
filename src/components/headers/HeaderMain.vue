@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Logo from "../../assets/icons/logo.vue";
 import Megamenu from "./Megamenu.vue";
-import heart from "../../assets/icons/Heart.vue";
 import { ref } from "vue";
 import { useCartStore } from "../../stores/cart";
 import { useFavoriteStore } from "../../stores/favorites";
@@ -51,7 +50,7 @@ function close() {
   </header>
   <Megamenu
     v-show="clickIndex != -1"
-    @close="close"
+    @close="()=>close()"
     :peopleCategory="categories[clickIndex]"
   />
 </template>
@@ -101,10 +100,10 @@ header {
 }
 
 .counters {
-  >*:not(:nth-child(2)) {
+  > *:not(:nth-child(2)) {
     gap: 8.5px;
   }
-  >*:nth-child(2) {
+  > *:nth-child(2) {
     margin: 0 20px;
     height: 22px;
     width: 1px;
