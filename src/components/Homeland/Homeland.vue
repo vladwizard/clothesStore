@@ -5,15 +5,7 @@ import NewArrivalsVue from "./NewArrivals.vue";
 import BlockAreasVue from "./BlockAreas.vue";
 import PopularCategoriesVue from "./PopularCategories.vue";
 import TrendingNowVue from "./TrendingNow.vue";
-import SalesVue from "./Sales.vue";
-import MobileOfferVue from "./MobileOffer.vue";
-import ArchivmentVue from "./Archivment.vue";
-import FollowInstagramVue from "./FollowInstagram.vue";
-import FashionBlogVue from "./FashionBlog.vue";
-import PatnerCompaniesVue from "./PatnerCompanies.vue";
-import SubscribeOfferVue from "./SubscribeOffer.vue";
-import Footer1Vue from "../footers/Footer1.vue";
-import Footer2Vue from "../footers/Footer2.vue";
+
 import { onMounted, onUnmounted, ref, onUpdated } from "vue";
 
 onMounted(() => {
@@ -56,15 +48,7 @@ onUpdated(() => {
       class="PopularCategories"
     />
     <TrendingNowVue v-if="permissionsRender[4]" class="TrendingNow" />
-    <SalesVue class="Sales" />
-    <MobileOfferVue class="MobileOffer" />
-    <ArchivmentVue class="Archivment" />
-    <FollowInstagramVue class="FollowInstagram" />
-    <FashionBlogVue class="FashionBlog" />
-    <PatnerCompaniesVue class="PatnerCompanies" />
-    <SubscribeOfferVue class="SubscribeOffer" />
-    <Footer1Vue class="Footer1" />
-    <Footer2Vue class="Footer2" />
+
   </div>
 </template>
 
