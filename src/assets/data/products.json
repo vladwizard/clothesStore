@@ -5,7 +5,7 @@
       "oldPrice": 80.95,
       "price": 49.95,
       "stars": 5,
-      "image": "src/assets/images/products/image0.png",
+      "image": "/src/assets/images/products/image0.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 0
@@ -14,7 +14,7 @@
       "title": "Mid-rise slim cropped fit jeans",
       "price": 40.0,
       "stars": 0,
-      "image": "src/assets/images/products/image1.png",
+      "image": "/src/assets/images/products/image1.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 1
@@ -23,7 +23,7 @@
       "title": "Black and white sport cap",
       "price": 18.15,
       "stars": 5,
-      "image": "src/assets/images/products/image2.png",
+      "image": "/src/assets/images/products/image2.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 2
@@ -32,7 +32,7 @@
       "title": "Green baby romper",
       "price": 20.4,
       "stars": 4,
-      "image": "src/assets/images/products/image3.png",
+      "image": "/src/assets/images/products/image3.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 3
@@ -41,7 +41,7 @@
       "title": "Check coat with colour contrast",
       "price": 183.45,
       "stars": 0,
-      "image": "src/assets/images/products/image4.png",
+      "image": "/src/assets/images/products/image4.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 4
@@ -51,7 +51,7 @@
       "oldPrice": 80.95,
       "price": 29.95,
       "stars": 5,
-      "image": "src/assets/images/products/image5.png",
+      "image": "/src/assets/images/products/image5.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 5
@@ -60,7 +60,7 @@
       "title": "Chrono watch with blue...",
       "price": 120.6,
       "stars": 4,
-      "image": "src/assets/images/products/image6.png",
+      "image": "/src/assets/images/products/image6.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 6
@@ -70,7 +70,7 @@
       "oldPrice": 80.95,
       "price": 30.6,
       "stars": 0,
-      "image": "src/assets/images/products/image7.png",
+      "image": "/src/assets/images/products/image7.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 7
@@ -79,7 +79,7 @@
       "title": "Basic hooded sweatshirt in pink",
       "price": 15.5,
       "stars": 4,
-      "image": "src/assets/images/products/image8.png",
+      "image": "/src/assets/images/products/image8.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 8
@@ -89,7 +89,7 @@
       "oldPrice": 80.95,
       "price": 40.0,
       "stars": 0,
-      "image": "src/assets/images/products/image9.png",
+      "image": "/src/assets/images/products/image9.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 9
@@ -98,7 +98,7 @@
       "title": "Leather crossbody bag with...",
       "price": 89.5,
       "stars": 5,
-      "image": "src/assets/images/products/image10.png",
+      "image": "/src/assets/images/products/image10.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 10
@@ -107,7 +107,7 @@
       "title": "Men fashion gray shoes",
       "price": 85.5,
       "stars": 0,
-      "image": "src/assets/images/products/image11.png",
+      "image": "/src/assets/images/products/image11.png",
       "sizes": ["XS", "M", "L"],
       "colors": ["Black", "Blue-gray", "Yellow"],
       "id": 11
