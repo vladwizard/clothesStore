@@ -5,9 +5,10 @@ import { ref } from "vue";
 import { useCartStore } from "../../stores/cart";
 import { useFavoriteStore } from "../../stores/favorites";
 
+
+
 const clickIndex = ref(-1);
 const categories = ["Women", "Men", "Girls", "Boys", "Sale"];
-// stores/counter.js
 
 const cartCounter = useCartStore();
 const favoriteCounter = useFavoriteStore();
@@ -36,12 +37,12 @@ function close() {
 
     <div class="counters extrasmall color800">
       <div>
-        <img src="src/assets/icons/heart.svg" />
+        <img src="/src/assets/icons/heart.svg"/>
         <p>{{ favoriteCounter.count }}</p>
       </div>
       <span></span>
       <div>
-        <img src="src/assets/icons/cart.svg" />
+        <img src="/src/assets/icons/cart.svg" />
         <p :class="{ active: cartCounter.count > 0 }">
           {{ cartCounter.count }}
         </p>
@@ -50,7 +51,7 @@ function close() {
   </header>
   <Megamenu
     v-show="clickIndex != -1"
-    @close="()=>close()"
+    @close="() => close()"
     :peopleCategory="categories[clickIndex]"
   />
 </template>

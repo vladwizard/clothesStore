@@ -4,10 +4,9 @@ import setting from "../../assets/icons/setting.vue";
 import lineArrowVue from "../../assets/icons/lineArrow.vue";
 import FiltersVue from "./Filters.vue";
 import SettingPagging from "./SettingsPagging.vue";
-import { ref, watch, reactive } from "vue";
+import { ref } from "vue";
 import productsJSON from "../../assets/data/products.json";
 import ProductVue from "../Product/ProductLittle.vue";
-import { useRoute } from "vue-router";
 import { useFilterStore } from "../../stores/catalogFilter";
 
 const products: Product[] = productsJSON.products;
@@ -17,7 +16,6 @@ const paggingList = ref({
   showPerPage: 12,
   pageNumber: 1,
 });
-const route = useRoute();
 
 const filterStore = useFilterStore();
 

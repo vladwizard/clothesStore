@@ -1,28 +1,34 @@
 <script setup lang="ts">
-import lineArrowVue from '../../assets/icons/lineArrow.vue';
+import lineArrowVue from "../../assets/icons/lineArrow.vue";
+
 </script>
 <template>
   <header class="small">
     <p>Available 24/7 at <b>(405) 555-0128</b></p>
 
     <div class="center">
-      <p v-for="item in ['Delivery & returns', 'Track order', 'Blog', 'Contacts']">
+      <p
+        v-for="item in [
+          'Delivery & returns',
+          'Track order',
+          'Blog',
+          'Contacts',
+        ]"
+      >
         {{ item }}
       </p>
-
     </div>
     <div>
       <div class="lang">
-        <img class="notOpacity" src="../../assets/icons/flag-usa.svg" height="12" width="20">
+        <img class="notOpacity" src="/src/assets/icons/flag-usa.svg?url" height="12" width="20" />
         <p>Eng / $</p>
         <lineArrowVue class="down" />
       </div>
       <div class="account">
-        <img src="../../assets/icons/man.svg">
+        <img src="/src/assets/icons/man.svg?url" />
         <p>Log in / Register</p>
       </div>
     </div>
-
   </header>
 </template>
 <style lang="scss" scoped>
@@ -50,11 +56,11 @@ header {
     fill: white;
   }
 
-  >div:nth-child(2) {
+  > div:nth-child(2) {
     gap: 32px;
   }
 
-  >div:last-child {
+  > div:last-child {
     gap: 63px;
 
     .lang {
@@ -64,10 +70,8 @@ header {
     }
 
     .account {
-      gap: 9px
+      gap: 9px;
     }
   }
-
-
 }
 </style>

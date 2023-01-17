@@ -40,7 +40,10 @@ let props = defineProps({
 });
 
 function ComputeList() {
-  let newList = {};
+  interface List {
+    [key: string]: FilterCell;
+  }
+  let newList: List = {};
   props.list.forEach(
     (title) => (newList[title] = new FilterCell(title, props.markedList))
   );
@@ -55,7 +58,6 @@ watch(
     computedList.value = ComputeList();
   }
 );
-
 </script>
 
 <template>

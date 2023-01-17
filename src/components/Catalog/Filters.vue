@@ -29,7 +29,7 @@ defineProps<{ markedList: MarkedList }>();
     <filterBlock title="Color" open>
       <EnumerableBlock
         class="table"
-        :component="FilterColorCell"
+        :component="(FilterColorCell as any)"
         :marked-list="markedList.colors"
         :list="enumeratedFilterData.colors"
       />

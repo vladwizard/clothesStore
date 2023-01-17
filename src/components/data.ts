@@ -1,4 +1,7 @@
-export const colorsDictionary = {
+interface ColorsDictionary {
+  [key: string]: string;
+}
+export const colorsDictionary: ColorsDictionary = {
   Black: "black",
   "Blue-gray": "#C0DDED",
   Yellow: "#FCD164",

@@ -31,9 +31,16 @@ function HandleEndScroll() {
   }
 }
 const onlyStartRender = ref(true);
+const lastChildrenLength = ref(Infinity);
 onUpdated(() => {
-  if (onlyStartRender) HandleEndScroll();
-  else onlyStartRender.value = false;
+  if (onlyStartRender.value == true) {
+    HandleEndScroll();
+    if (lastChildrenLength.value == wrapper.value.children.length) {
+      onlyStartRender.value = false;
+    }
+
+    lastChildrenLength.value = wrapper.value.children.length;
+  }
 });
 </script>
 
@@ -48,7 +55,6 @@ onUpdated(() => {
       class="PopularCategories"
     />
     <TrendingNowVue v-if="permissionsRender[4]" class="TrendingNow" />
-
   </div>
 </template>
 
