@@ -41,19 +41,19 @@ article {
 
   >*:nth-child(1) {
     grid-area: a;
-    background: url("/src/assets/images/offerBlocks/image0.png");
+    background: url("/images/offerBlocks/image0.png");
     background-size: cover;
   }
 
   >*:nth-child(2) {
     grid-area: b;
-    background: url("/src/assets/images/offerBlocks/image1.png");
+    background: url("/images/offerBlocks/image1.png");
     background-size: cover;
   }
 
   >*:nth-child(3) {
     grid-area: c;
-    background: url("/src/assets/images/offerBlocks/image2.png");
+    background: url("/images/offerBlocks/image2.png");
     background-size: cover;
   }
 
@@ -73,7 +73,7 @@ article {
     content: "";
     width: 439px;
     height: 380px;
-    background: url("/src/assets/images/offerBlocks/image3.png");
+    background: url("/images/offerBlocks/image3.png");
     position: absolute;
     right: 0;
     bottom: 0;

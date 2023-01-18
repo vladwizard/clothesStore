@@ -22,9 +22,7 @@ function changeCollection(increase: boolean) {
 </script>
 
 <template>
-  <main
-    :style="{ 'background-image': 'url(' + collections[indexC].image + ')' }"
-  >
+  <main :style="{ 'background-image': 'url(' + collections[indexC].image+ ')' }">
     <ButtonArrowVue class="left" @click="changeCollection(false)" />
     <div class="data">
       <p class="category">{{ collections[indexC].category }}</p>
@@ -64,12 +62,6 @@ main {
   justify-content: space-between;
   padding: 0 32px;
   align-items: center;
-
-  // img {
-  //   position: absolute;
-  //   height: 100%;
-  //   width: 100%;
-  // }
 
   svg {
     fill: #424551;
